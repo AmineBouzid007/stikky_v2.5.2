@@ -1,5 +1,6 @@
 "use client";
 
+import { createCustomRequest } from "@/app/actions/custom-requests";
 import { useState } from "react";
 import Link from "next/link";
 import { UploadCloud, Check } from "lucide-react";
@@ -22,6 +23,10 @@ export default function CustomPage() {
   const [preview, setPreview] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [name, setName] = useState("")
+  const [phone, setPhone] = useState("")
+  const [email, setEmail] = useState("")
+  const [notes, setNotes] = useState("")
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -30,17 +35,44 @@ export default function CustomPage() {
     setPreview(URL.createObjectURL(file));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
     setSubmitting(true);
-    // Demo submission — wire this to /api/custom-requests + Supabase `custom_requests`
-    // table (see lib/db/schema.ts) once the backend is connected.
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      toast("Custom request sent — our design team will be in touch within 48h.");
-    }, 600);
-  };
+
+    await createCustomRequest({
+      name,
+      phone,
+      email,
+      product_type: productType,
+      size,
+      frame_option: frame,
+      notes,
+      image_url: null,
+      estimated_price: 0,
+    });
+
+    setSubmitted(true);
+
+    toast.success(
+      "Custom request sent — our design team will contact you within 48h."
+    );
+
+  } catch (error: any) {
+    console.error(
+      "CUSTOM REQUEST FAILED:",
+      error
+    );
+
+    toast.error(
+      error.message || "Failed to send request"
+    );
+
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background">
@@ -102,15 +134,31 @@ export default function CustomPage() {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <Label htmlFor="name">Full name</Label>
-                  <Input id="name" required />
+                  <Input
+                    id="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone</Label>
-                  <Input id="phone" required />
+                  <Input
+                    id="phone"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />  
                 </div>
                 <div className="space-y-2 sm:col-span-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" required />
+                  <Input
+                    id="email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="size">Preferred size</Label>
@@ -144,11 +192,14 @@ export default function CustomPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="notes">Tell us about the idea</Label>
-                <Textarea
-                  id="notes"
-                  rows={5}
-                  placeholder="A photo you want stylized, a scene, a character, a quote — the more detail, the better the first proof."
-                />
+               <Textarea
+                  <Textarea
+                    id="notes"
+                    rows={5}
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    placeholder="A photo you want stylized, a scene, a character, a quote — the more detail, the better the first proof."
+                  />
               </div>
 
               <Button
