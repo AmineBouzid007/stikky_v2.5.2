@@ -192,14 +192,13 @@ export default function CustomPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="notes">Tell us about the idea</Label>
-               <Textarea
-                  <Textarea
+                <Textarea
                     id="notes"
                     rows={5}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     placeholder="A photo you want stylized, a scene, a character, a quote — the more detail, the better the first proof."
-                  />
+                  />  
               </div>
 
               <Button
