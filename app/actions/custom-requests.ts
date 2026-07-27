@@ -23,25 +23,23 @@ export async function createCustomRequest(
 
     console.log("CUSTOM REQUEST DATA:", data)
 
-    const { data: request, error } = await supabase
-      .from('custom_requests')
-      .insert([
-        {
-          user_id: null,
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          product_type: data.product_type,
-          size: data.size,
-          frame_option: data.frame_option,
-          image_url: data.image_url || null,
-          notes: data.notes || null,
-          estimated_price: data.estimated_price || 0,
-          status: 'pending',
-        },
-      ])
-      .select()
-      .single()
+   const { error } = await supabase
+  .from('custom_requests')
+  .insert([
+    {
+      user_id: null,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      product_type: data.product_type,
+      size: data.size,
+      frame_option: data.frame_option,
+      image_url: data.image_url || null,
+      notes: data.notes || null,
+      estimated_price: data.estimated_price || 0,
+      status: 'pending',
+    },
+  ])
 
     if (error) {
       console.error(
@@ -52,17 +50,11 @@ export async function createCustomRequest(
       throw new Error(error.message)
     }
 
-    console.log(
-      "CUSTOM REQUEST CREATED:",
-      request
-    )
-
     revalidatePath('/admin')
     revalidatePath('/admin/custom-requests')
 
     return {
       success: true,
-      request,
     }
 
   } catch (error: any) {
