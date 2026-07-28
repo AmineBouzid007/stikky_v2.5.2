@@ -35,19 +35,28 @@ export default function CustomPage() {
   const [notes, setNotes] = useState("");
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files?.[0];
+  const file = e.target.files?.[0];
 
-    if (!selectedFile) return;
+  if (!file) return;
 
-    if (selectedFile.size > 10 * 1024 * 1024) {
-      toast.error("Image must be smaller than 10MB");
-      return;
-    }
+  if (file.size > 5 * 1024 * 1024) {
+    toast.error("Image must be smaller than 5MB");
+    return;
+  }
 
-    setFile(selectedFile);
-    setFileName(selectedFile.name);
-    setPreview(URL.createObjectURL(selectedFile));
+  setFileName(file.name);
+
+  const reader = new FileReader();
+
+  reader.onloadend = () => {
+    const base64 = reader.result as string;
+
+    setPreview(base64);
+    setImageUrl(base64);
   };
+
+  reader.readAsDataURL(file);
+};
 
 
   const uploadImage = async () => {
