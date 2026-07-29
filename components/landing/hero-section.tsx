@@ -201,9 +201,9 @@ export function HeroSection() {
       >
         <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
           {[
-            { value: "100+", label: "posters made" },
-            { value: "4.9/5", label: "average customer rating" },
-            { value: "5 Days", label: "average print & ship time" },
+             { value: "400+", label: "designs available" },
+             { value: "4.9/5", label: "customer satisfaction" },
+             { value: "4-6 Days", label: "production & delivery" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-2">
               <span className="text-3xl lg:text-4xl font-display text-white">{stat.value}</span>
