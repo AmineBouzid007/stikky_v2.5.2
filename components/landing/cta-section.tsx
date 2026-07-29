@@ -84,7 +84,7 @@ export function CtaSection() {
                 </div>
 
                 <p className="text-sm text-muted-foreground mt-8 font-mono">
-                  Free shipping on orders over $75
+                  Free nationwide delivery on every order
                 </p>
               </div>
 
