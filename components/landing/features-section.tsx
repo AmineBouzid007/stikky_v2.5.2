@@ -21,12 +21,6 @@ const features = [
     description: "Send a photo, a scene, or an idea. Our design team builds a proof you approve before anything goes to print.",
     stats: { value: "2 days", label: "to design proof" },
   },
-  {
-    number: "04",
-    title: "Fast, Tracked Shipping",
-    description: "Printed to order and shipped worldwide with tracking, so you always know exactly when it lands.",
-    stats: { value: "48h", label: "avg. print time" },
-  },
 ];
 
 // Floating dot particles visualization
