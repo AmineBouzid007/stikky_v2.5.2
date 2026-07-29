@@ -159,7 +159,7 @@ export function PricingSection() {
                   <div className="mb-8">
                     <div className="flex items-baseline gap-2">
                       <span className="text-5xl lg:text-6xl font-display">
-                        ${plan.price.monthly}
+                        ${plan.price.monthly} TND
                       </span>
                       <span className="text-muted-foreground text-sm">one-time</span>
                     </div>
