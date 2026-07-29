@@ -6,30 +6,30 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const testimonials = [
   {
     quote: "The frame quality alone is worth it. Feels like something from a real gallery, not a poster shop.",
-    author: "Sarah Chen",
+    author: "Sarra N",
     role: "Verified Buyer",
     company: "Cars Collection",
     metric: { value: "4.9/5", label: "Average rating" },
   },
   {
     quote: "Sent them a photo and two days later I had a proof to approve. The final print was even better than I pictured.",
-    author: "Marcus Webb",
+    author: "Amine B",
     role: "Verified Buyer",
     company: "Custom Order",
     metric: { value: "48h", label: "To design proof" },
   },
   {
     quote: "Ordered three posters for my setup and they all arrived framed and perfectly packed. Zero assembly.",
-    author: "Elena Rodriguez",
+    author: "Chad F",
     role: "Verified Buyer",
     company: "Gaming Collection",
     metric: { value: "0", label: "Assembly required" },
   },
   {
     quote: "Colors are still just as sharp a year later. This is the paper quality other shops talk about but don't deliver.",
-    author: "James Liu",
+    author: "Ahmed L",
     role: "Verified Buyer",
-    company: "Anime Collection",
+    company: "archival paper",
     metric: { value: "200gsm", label: "Archival paper" },
   },
 ];
