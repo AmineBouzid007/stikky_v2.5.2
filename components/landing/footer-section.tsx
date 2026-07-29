@@ -8,7 +8,6 @@ const footerLinks = {
     { name: "Posters", href: "/collections/posters" },
     { name: "Stickers", href: "/collections/stickers" },
     { name: "Custom Orders", href: "/custom" },
-    { name: "Track Order", href: "/account?tab=orders" },
   ],
   Support: [
     { name: "Shipping", href: "/contact" },
@@ -19,7 +18,6 @@ const footerLinks = {
   Company: [
     { name: "About", href: "/about" },
     { name: "Reviews", href: "/#testimonials" },
-    { name: "Careers", href: "/contact", badge: "Hiring" },
   ],
   Legal: [
     { name: "Privacy", href: "#" },
@@ -28,9 +26,8 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: "Instagram", href: "#" },
+  { name: "Instagram", href: "https://www.instagram.com/stikky.tn/" },
   { name: "TikTok", href: "#" },
-  { name: "Pinterest", href: "#" },
 ];
 
 function AnimatedWaveCanvas() {
