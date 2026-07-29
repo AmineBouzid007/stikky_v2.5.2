@@ -207,7 +207,7 @@ export function PricingSection() {
             </span>
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#eca8d6]" />
-              Worldwide shipping
+              All 24 governorates covered
             </span>
             <span className="flex items-center gap-2">
               <Check className="w-4 h-4 text-[#eca8d6]" />
