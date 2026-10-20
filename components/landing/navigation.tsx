@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ShoppingBag, User, ChevronDown } from "lucide-react";
 import { useCart } from "@/lib/cart-context";
 import { getCategories } from "@/lib/products";
+import { StikkyLogo } from "@/components/brand/stikky-logo";
 
 const navLinks = [
   { name: "Posters", href: "/collections/posters" },
@@ -62,8 +63,11 @@ export function Navigation() {
           }`}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className={`font-display tracking-tight transition-all duration-500 ${isScrolled ? "text-xl text-foreground" : "text-2xl text-white"}`}>STIKKY</span>
+          <Link href="/" className="flex items-center gap-2 group" aria-label="Stikky home">
+            <StikkyLogo
+              variant="wordmark"
+              className={`transition-all duration-500 ${isScrolled ? "h-7 text-foreground" : "h-9 text-white"}`}
+            />
           </Link>
 
           {/* Desktop Navigation */}

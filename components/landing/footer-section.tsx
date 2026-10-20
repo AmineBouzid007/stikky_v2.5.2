@@ -2,6 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { StikkyLogo } from "@/components/brand/stikky-logo";
 
 const footerLinks = {
   Shop: [
@@ -110,7 +111,7 @@ export function FooterSection() {
             {/* Brand Column */}
             <div className="col-span-2">
               <a href="/" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display text-white">STIKKY</span>
+                <StikkyLogo variant="wordmark" className="h-9 text-white" />
               </a>
 
               <p className="text-white/50 leading-relaxed mb-8 max-w-xs text-sm">

@@ -8,9 +8,9 @@ import {
   Package,
   Users,
   Settings,
-  Sticker,
   X,
 } from "lucide-react";
+import { StikkyLogo } from "@/components/brand/stikky-logo";
 
 const NAV_ITEMS = [
   { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -31,11 +31,9 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
   const content = (
     <>
       <div className="flex h-16 items-center gap-2 px-6">
-        <div className="flex size-8 items-center justify-center rounded-lg bg-[#FF4500]">
-          <Sticker className="size-4 text-white" />
-        </div>
+        <StikkyLogo variant="icon" className="h-8 text-white" />
         <span className="text-lg font-semibold tracking-tight text-white">
-          Stikky <span className="text-white/40 font-normal">Admin</span>
+          Admin
         </span>
         <button
           onClick={onClose}
